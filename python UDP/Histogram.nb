@@ -1,0 +1,411 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18172,        402]
+NotebookOptionsPosition[     17445,        372]
+NotebookOutlinePosition[     17781,        387]
+CellTagsIndexPosition[     17738,        384]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Histograms`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.601484269608015*^9, 3.601484272060689*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FrequencyData", "::", "\<\"shdw\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Symbol \\!\\(\\\"FrequencyData\\\"\\) appears in multiple \
+contexts \\!\\({\\\"Histograms`\\\", \\\"Global`\\\"}\\); definitions in \
+context \\!\\(\\\"Histograms`\\\"\\) may shadow or be shadowed by other \
+definitions.\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.601486747917197*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Histogram", "::", "\<\"shdw\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Symbol \\!\\(\\\"Histogram\\\"\\) appears in multiple \
+contexts \\!\\({\\\"Histograms`\\\", \\\"Global`\\\"}\\); definitions in \
+context \\!\\(\\\"Histograms`\\\"\\) may shadow or be shadowed by other \
+definitions.\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6014867479644833`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", " ", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/Aline/Documents/WORK/LOA/Radioprotection/python/stats.csv\>\"\
+", "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.601484307092559*^9, 3.601484309867958*^9}, {
+  3.601486378345882*^9, 3.60148643376989*^9}, {3.601486542704863*^9, 
+  3.601486577294529*^9}, {3.6014866405985394`*^9, 3.6014866701723623`*^9}, {
+  3.601487608555457*^9, 3.6014876139243507`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Head", "[", "data", "]"}]], "Input",
+ CellChangeTimes->{{3.601486644555944*^9, 3.6014866517361794`*^9}}],
+
+Cell[BoxData["List"], "Output",
+ CellChangeTimes->{3.601486652248673*^9, 3.6014867533895082`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dat", " ", "=", " ", 
+  RowBox[{"Histogram", "[", 
+   RowBox[{
+    RowBox[{"data", " ", 
+     SuperscriptBox["10", "3"]}], ",", " ", 
+    RowBox[{"Frame", "\[Rule]", " ", "True"}], ",", " ", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<occurrence\>\"", ",", "\"\<\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<latency (ms)\>\"", ",", "\"\<\>\""}], "}"}]}], "}"}]}], 
+    ",", " ", 
+    RowBox[{"ImageSize", "\[Rule]", " ", "800"}], ",", " ", 
+    RowBox[{"BaseStyle", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontSize", "\[Rule]", " ", "25"}], ",", " ", 
+       RowBox[{"FrameStyle", "\[Rule]", " ", 
+        RowBox[{"{", "Thick", "}"}]}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.601486404468174*^9, 3.601486404728509*^9}, {
+   3.6014867325090933`*^9, 3.601486743192528*^9}, {3.601486795153936*^9, 
+   3.601486795288582*^9}, {3.6014868356870823`*^9, 3.601486840023526*^9}, {
+   3.601486928927806*^9, 3.6014869604451933`*^9}, {3.601487597456204*^9, 
+   3.601487598309754*^9}, {3.60148762913323*^9, 3.6014877851540003`*^9}, 
+   3.601487818380391*^9, {3.60148794439307*^9, 3.601487982509727*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], RectangleBox[{0.0125, 0}, {0.015, 5}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.015000000000000001`, 0}, {0.0175, 9}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.017499999999999995`, 0}, {0.019999999999999997`, 28}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.019999999999999997`, 0}, {0.0225, 16}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.022499999999999992`, 0}, {0.024999999999999994`, 15}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.024999999999999994`, 0}, {0.027499999999999997`, 11}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.02749999999999999, 0}, {0.029999999999999992`, 11}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.029999999999999992`, 0}, {0.03249999999999999, 11}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.03249999999999999, 0}, {0.03499999999999999, 9}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.03499999999999999, 0}, {0.03749999999999999, 37}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.03749999999999999, 0}, {0.039999999999999994`, 91}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.03999999999999998, 0}, {0.04249999999999998, 392}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.04249999999999998, 0}, {0.044999999999999984`, 55}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.044999999999999984`, 0}, {0.04749999999999999, 243}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.04749999999999999, 0}, {0.049999999999999975`, 73}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.049999999999999975`, 0}, {0.05249999999999998, 20}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.05249999999999998, 0}, {0.05499999999999998, 22}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.05499999999999998, 0}, {0.05749999999999998, 67}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.05749999999999998, 0}, {0.05999999999999997, 254}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.05999999999999997, 0}, {0.06249999999999997, 35}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.06249999999999997, 0}, {0.06499999999999997, 36}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.06499999999999997, 0}, {0.06749999999999998, 167}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.06749999999999998, 0}, {0.06999999999999998, 46}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.06999999999999997, 0}, {0.07249999999999997, 191}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.07249999999999997, 0}, {0.07499999999999997, 317}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.07499999999999997, 0}, {0.07749999999999997, 139}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.07749999999999996, 0}, {0.07999999999999996, 24}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.07999999999999996, 0}, {0.08249999999999996, 20}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.08249999999999996, 0}, {0.08499999999999996, 30}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.08499999999999996, 0}, {0.08749999999999997, 22}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.08749999999999995, 0}, {0.08999999999999996, 24}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.08999999999999996, 0}, {0.09249999999999996, 25}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.09249999999999996, 0}, {0.09499999999999996, 16}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.09499999999999996, 0}, {0.09749999999999996, 21}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.09749999999999995, 0}, {0.09999999999999995, 15}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.09999999999999995, 0}, {0.10249999999999995`, 25}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.10249999999999995`, 0}, {0.10499999999999995`, 9}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.10499999999999995`, 0}, {0.10749999999999996`, 32}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.10749999999999994`, 0}, {0.10999999999999995`, 37}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.10999999999999995`, 0}, {0.11249999999999995`, 32}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.11249999999999995`, 0}, {0.11499999999999995`, 2}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.11499999999999995`, 0}, {0.11749999999999995`, 8}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.11749999999999994`, 0}, {0.11999999999999994`, 9}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.11999999999999994`, 0}, {0.12249999999999994`, 82}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.12249999999999994`, 0}, {0.12499999999999994`, 84}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.12499999999999994`, 0}, {0.12749999999999995`, 27}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.12749999999999995`, 0}, {0.12999999999999995`, 7}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.12999999999999995`, 0}, {0.13249999999999995`, 16}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.13249999999999995`, 0}, {0.13499999999999995`, 8}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.13499999999999995`, 0}, {0.13749999999999996`, 16}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.13749999999999996`, 0}, {0.13999999999999996`, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.13999999999999996`, 0}, {0.14249999999999996`, 5}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.14249999999999996`, 0}, {0.1449999999999999, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.14499999999999993`, 0}, {0.14749999999999994`, 3}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.14749999999999994`, 0}, {0.14999999999999994`, 0}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.14999999999999994`, 0}, {0.15249999999999994`, 4}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.15249999999999994`, 0}, {0.15499999999999994`, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.15499999999999994`, 0}, {0.15749999999999995`, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.15749999999999995`, 0}, {0.15999999999999995`, 0}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.15999999999999998`, 0}, {0.16249999999999992`, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.16249999999999992`, 0}, {0.16499999999999992`, 0}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.16499999999999992`, 0}, {0.16749999999999993`, 1}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.16749999999999993`, 0}, {0.16999999999999993`, 2}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.16999999999999993`, 0}, {0.17249999999999993`, 2}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.17249999999999993`, 0}, {0.17499999999999993`, 0}]}, 
+   {RGBColor[0.7771114671549554, 0.7981689173723965, 0.92304875257496], 
+    EdgeForm[GrayLevel[0]], 
+    RectangleBox[{0.17499999999999993`, 0}, {0.17749999999999994`, 1}]}},
+  AlignmentPoint->Center,
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->None,
+  AxesOrigin->{0.0125, 0},
+  AxesStyle->{},
+  Background->None,
+  BaseStyle->{FontSize -> 25, FrameStyle -> {
+      Thickness[Large]}},
+  BaselinePosition->Automatic,
+  ColorOutput->Automatic,
+  ContentSelectable->Automatic,
+  DisplayFunction:>$DisplayFunction,
+  Epilog->{},
+  FormatType:>TraditionalForm,
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"occurrence\"", TraditionalForm], 
+     FormBox["\"\"", TraditionalForm]}, {
+     FormBox["\"latency (ms)\"", TraditionalForm], 
+     FormBox["\"\"", TraditionalForm]}},
+  FrameStyle->{},
+  FrameTicks->Automatic,
+  FrameTicksStyle->{},
+  GridLines->None,
+  GridLinesStyle->{},
+  ImageMargins->0.,
+  ImagePadding->All,
+  ImageSize->800,
+  LabelStyle->{},
+  Method->Automatic,
+  PlotLabel->None,
+  PlotRange->{{0.0125, 0.17749999999999994`}, All},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]},
+  PlotRegion->Automatic,
+  PreserveImageOptions->Automatic,
+  Prolog->{},
+  RotateLabel->True,
+  Ticks->{{{0.025, 
+      FormBox["0.025`", TraditionalForm]}, {0.05, 
+      FormBox["0.05`", TraditionalForm]}, {0.07500000000000001, 
+      FormBox["0.07500000000000001`", TraditionalForm]}, {0.1, 
+      FormBox["0.1`", TraditionalForm]}, {0.125, 
+      FormBox["0.125`", TraditionalForm]}, {0.15000000000000002`, 
+      FormBox["0.15000000000000002`", TraditionalForm]}, {
+     0.17500000000000002`, 
+      FormBox["0.17500000000000002`", TraditionalForm]}}, Automatic},
+  TicksStyle->{}]], "Output",
+ CellChangeTimes->{{3.6014876680326567`*^9, 3.601487785544091*^9}, 
+   3.6014878189671926`*^9, {3.601487962989053*^9, 3.6014879830703993`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</Users/Aline/Documents/WORK/LOA/Radioprotection/python/stats.jpg\>\"", 
+   " ", ",", "dat"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6014876001244287`*^9, 3.601487621653153*^9}, {
+  3.6014878284026127`*^9, 3.6014878365995197`*^9}}],
+
+Cell[BoxData["\<\"/Users/Aline/Documents/WORK/LOA/Radioprotection/python/\
+stats.jpg\"\>"], "Output",
+ CellChangeTimes->{
+  3.601487838821693*^9, {3.601487968519538*^9, 3.60148798749972*^9}}]
+}, Open  ]]
+},
+WindowSize->{1276, 752},
+WindowMargins->{{Automatic, 0}, {Automatic, 4}},
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (March 13, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 142, 2, 27, "Input"],
+Cell[735, 27, 396, 8, 23, "Message"],
+Cell[1134, 37, 390, 8, 23, "Message"]
+}, Open  ]],
+Cell[1539, 48, 493, 11, 27, "Input"],
+Cell[CellGroupData[{
+Cell[2057, 63, 128, 2, 27, "Input"],
+Cell[2188, 67, 97, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2322, 73, 1244, 27, 33, "Input"],
+Cell[3569, 102, 13341, 251, 536, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16947, 358, 288, 6, 27, "Input"],
+Cell[17238, 366, 191, 3, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
