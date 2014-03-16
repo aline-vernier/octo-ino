@@ -17,12 +17,9 @@ volatile int state = LOW;
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 IPAddress ip(192, 168, 79, 100);
-unsigned int localPort = 5005;      
-
-
 
 char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
-char ReplyBuffer[] = "this is my answer";     // an array to send back
+
 
 
 EthernetUDP Udp;
@@ -34,16 +31,6 @@ void setup() {
 
   Serial.begin(9600);
 
-  pinMode(buttonPin, INPUT);
-  pinMode(emergencyPin, INPUT);
-
-  pinMode(greenLedPin, OUTPUT);
-  pinMode(orangeLedPin, OUTPUT);
-  pinMode(redLedPin, OUTPUT);
-  pinMode(alarm1Pin, OUTPUT);
-  pinMode(alarm2Pin, OUTPUT);
-
-  
 }
 
 void loop() {
@@ -51,13 +38,20 @@ void loop() {
   int packetSize = Udp.parsePacket();
   int i;
   int currentState = 0;
-  int num = 0b101110110;
-  int num2 = 0b101110111;
+  byte transmit[3]  = {0b01110110, 0, 0};
+  int theBit ;
+  int k;
+  int written=0;
+
+ // Serial.println("");
+
+
+//  Serial.println(transmit);
   
   digitalWrite(greenLedPin, state);
   if(packetSize)
   {
-    Serial.print("Received packet of size ");
+    Serial.println("Received packet of size ");
     Serial.println(packetSize);
     Serial.print("From ");
     IPAddress remote = Udp.remoteIP();
@@ -75,16 +69,26 @@ void loop() {
 
     // read the packet into packetBufffer
     Udp.read(packetBuffer,UDP_TX_PACKET_MAX_SIZE);
-    Serial.println("Contents:");
-    Serial.println(packetBuffer);
-    currentState = atoi(packetBuffer);
-    Serial.println(currentState);
+  //  Serial.println("Contents:");
+    for (k=0; k<8; k++){
+      theBit = (packetBuffer[0] & ( 1 << k )) >> k;
+      Serial.print(theBit);
+  }
+     Serial.println("");
+      for (k=0; k<8; k++){
+      theBit = (packetBuffer[1] & ( 1 << k )) >> k;
+      Serial.print(theBit);
+  }
+      Serial.println("");
+   // currentState = atoi(packetBuffer);
+   // Serial.println(currentState);
     
 
     // send a reply, to the IP address and port that sent us the packet we received
     Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-    Udp.write("stuff");
-
+    written = Udp.write(transmit, 3);
+    Serial.print("bytes written ");
+    Serial.println(written);
  
     Udp.endPacket();
 
@@ -92,6 +96,9 @@ void loop() {
 
   }
 }
+
+
+
 
 
 
