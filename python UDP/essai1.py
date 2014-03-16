@@ -6,7 +6,7 @@ import sys
 UDP_IP = "192.168.79.100"
 UDP_PORT = 5005
 NUMBER = 65
-MESSAGE = chr(0b0) + chr(0b0)
+MESSAGE = chr(0b0) + chr(0b0) + chr(0b110) 
 
 print "UDP target IP: ", UDP_IP
 print "UDP target port: ", UDP_PORT
@@ -26,7 +26,7 @@ while True:
 		elapsed = time.clock()-start
 		data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
 		print "received message:", data
-		print "i received ", len(data), "bytes"
+		print "i received", len(data), "bytes"
 		print "translated", ''.join(format(ord(x),'b')for x in data)
 		print "i waited for ", elapsed, "seconds" 
 	time.sleep(1)
