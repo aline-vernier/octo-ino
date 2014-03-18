@@ -6,7 +6,7 @@ import sys
 UDP_IP = "192.168.79.100"
 UDP_PORT = 5005
 NUMBER = 65
-MESSAGE = chr(0b0) + chr(0b0) + chr(0b110) 
+MESSAGE = chr(0b11111111) + chr(0b11111111) + chr(0b11111111) 
 
 print "UDP target IP: ", UDP_IP
 print "UDP target port: ", UDP_PORT
