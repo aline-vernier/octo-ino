@@ -6,7 +6,7 @@ import sys
 UDP_IP = "192.168.79.100"
 UDP_PORT = 5005
 NUMBER = 65
-MESSAGE = chr(0b11111111) + chr(0b11111111) + chr(0b11111111) 
+MESSAGE = chr(0b111100) + chr(0b0) 
 
 print "UDP target IP: ", UDP_IP
 print "UDP target port: ", UDP_PORT
@@ -29,6 +29,6 @@ while True:
 		print "i received", len(data), "bytes"
 		print "translated", ''.join(format(ord(x),'b')for x in data)
 		print "i waited for ", elapsed, "seconds" 
-	time.sleep(1)
+	time.sleep(0.5)
 	data = 0
 	print "finished sleeping"

@@ -6,9 +6,12 @@
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 IPAddress ip(192, 168, 79, 100);
-byte packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
-
 int i, j, k;
+
+
+byte state[2]  = {0, 0};
+int here[2] = {0, 0};
+int hereNoDup[2] = {0, 0};
 
 EthernetUDP Udp;
 
@@ -16,13 +19,12 @@ void setup() {
 
   Ethernet.begin(mac,ip);
   Udp.begin(5005);
-  Serial.begin(9600);
-
+  
+//  Serial.begin(9600); //pour tests
   
   /* {buttonPin = 2, emergencyPin = 3, greenLedPin = 4, orangeLedPin = 5, redLedPin = 6, alarm1Pin = 7, alarm2Pin = 8 }*/
   pinMode(2, INPUT);
   pinMode(3, INPUT);
-  
   for(i=4; i<9; i++){
     pinMode(i, OUTPUT);
     digitalWrite(i, LOW);
@@ -33,41 +35,63 @@ void setup() {
 void loop() {
 
   int packetSize = Udp.parsePacket();
-  byte transmit[3]  = {0, 0, 0};
-  int  theBit = 0;
-  int written = 0, received = 0;
-  
-  
-  for(i=2; i<4; i++){
-    if(digitalRead(i)) bitWrite(transmit[0], i-2, 1);
-  }  
+  int chkSm = 0;
+  double dt = 0.0;
+
+/*******************************************
+L'etat du bouton est enregistre jusqu'a la 
+reception d'une demande de paquets du systeme
+central. Sur reception d'un paquet, l'etat 
+du bouton est remis a zero.
+********************************************/
+    
+  for(i=0; i<2; i++){
+    if(digitalRead(i) && !hereNoDup[i]){
+    here[i]=digitalRead(i+2);
+    }
+  }
+/*******************************************
+Verification continue de l'etat des boutons, 
+evite le comptage double si le bouton est 
+presse trop longtemps.
+********************************************/
 
   if(packetSize)
+   
   {
-
-    Serial.print("transmit[0]  = ");
-    Serial.println(transmit[0] );
+    Udp.read(state, UDP_TX_PACKET_MAX_SIZE);
     
-    received = Udp.read(packetBuffer,UDP_TX_PACKET_MAX_SIZE);
-
-    for(i=0; i<7; i++){
-      digitalWrite(i+4, bitRead(packetBuffer[0], i));
-      Serial.print(bitRead(packetBuffer[0], i));
+    for(i=0;i<2;i++){
+      bitWrite(state[0], i, here[i]);
+      chkSm = chkSm + bitRead(state[0], i);
     }
-   Serial.println("");
-    // send a reply, to the IP address and port that sent us the packet we received
+    for(i=4; i<9; i++){
+      digitalWrite(i, bitRead(state[0], i-2));
+      chkSm = chkSm + bitRead(state[0], i-2);
+    }/*Ecriture de l'etat du systeme sur les LED*/
+    
+    bitWrite(state[1], 7, chkSm%2);
+    
+    for(i=0;i<2;i++){
+      for(j=0;j<8;j++){
+        Serial.print(bitRead(state[i], j));
+      }
+    }
+    Serial.println("");
+    
     Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-    written = Udp.write(transmit, 3);
-    Serial.print(written);
-    Serial.println("bytes written ");
-
- 
+    Udp.write(state, 2);
     Udp.endPacket();
 
-    delay(100);
+    for(i=0; i<2; i++){
+      hereNoDup[i] = here[i];
+      here[i] = 0;
+    } 
 
+ }//end of if(packetsize){}
 
-  }//end of if(packetsize){}
+ 
+ 
 }//end of loop
 
 
